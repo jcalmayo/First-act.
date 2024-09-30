@@ -1,0 +1,145 @@
+---
+title: "Rworksheet_Almayo#3a"
+author: "Josh Christian Almayo"
+date: "2024-09-30"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+\\LETTERS:
+
+\\Based on the above vector LETTERS:
+a. You need to produce a vector that contains the first 11 letters.
+
+LETTERS <- LETTERS[1:11]
+LETTERS
+\\Produce a vector that contains the odd numbered letters.
+
+odd_LETTERS_upper <-LETTERS[seq(from=1,length(LETTERS),by=2)]
+odd_LETTERS_upper
+
+\\Produce a vector that contains the vowels
+
+vowels_upper <- LETTERS[c(1, 5, 9, 15, 21)] 
+
+\\Based on the above vector letters:
+
+
+\\Produce a vector that contains the last 5 lowercase letters.
+last_five_lower <- tail(letters, 5)
+
+\\Produce a vector that contains letters between 15 to 24 letters in lowercase.
+
+letters_15_to_24 <- letters[15:24]
+
+\\Create a vector(not a dataframe) with the average temperatures in April for Tugue-
+garao City, Manila, Iloilo City, Tacloban, Samal Island, and Davao City. The average
+
+temperatures in Celcius are 42, 39, 34, 34, 30, and 27 degrees.
+
+\\What is the R code and its result for creating a character vector for the city/town
+of Tuguegarao City, Manila, Iloilo City, Tacloban,Samal Island, and Davao City? Name the
+object as city. The names should follow the same order as in the instruction.
+
+city <- c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+
+\\The average temperatures in Celcius are 42, 39, 34, 34, 30, and 27 degrees.
+Name the object as temp. Write the R code and its output. Numbers should also follow
+what is in the instruction.
+
+temp <- c( 42, 39, 34, 34, 30,27 )
+
+\\Create a dataframe to combine the city and the temp by using ‘data.frame(). What
+the R code and its result?
+
+city <- c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+
+temp <- c(42, 39, 34, 34, 30, 27)
+
+data <- data.frame("City", "Temp")
+
+
+\\Associate the dataframe you have created in 2.(c) by naming the columns using
+the names() function. Change the column names by using names() function as City and
+Temperature. What is the R code and its result?
+
+df <- data.frame(city,temp)
+
+names(df) <- c("City","Temperature")
+
+\\Print the structure by using str() function. Describe the output.
+str(City_Temperature_df)
+str(df)
+
+df[3:4,]
+
+\\From the answer in d, display the city with highest temperature and the city with
+the lowest temperature. What is its R code and its output?
+
+max_temp_city <- df[which.max(df$Temperature), "City"]
+
+min_temp_city <- df[which.min(df$Temperature), "City"]
+
+Create a matrix of one to eight and eleven to fourteen with four columns and three
+rows.
+mat <- matrix(c(1:8, 11:14), ncol = 4, nrow = 3)
+mat
+\\What will be the R code for the #2 question and its result?
+\\     [,1] [,2] [,3] [,4]
+[1,]    1    4    7   12
+[2,]    2    5    8   13
+[3,]    3    6   11   14
+ 
+\\Multiply the matrix by two. What is its R code and its result?
+
+mat_multiplied <- mat*2
+
+\\What is the content of row 2? What is its R code?
+\\8,10,12
+
+What will be the R code if you want to display the column 3 and column 4 in row 1
+and row 2? What is its output?
+
+\\ [,1] [,2]
+[1,]    7   12
+[2,]    8   13
+
+mat_subset <-mat [1:2,3:4]
+mat_subset
+
+\\What is the R code if you want to display only the columns in 2 and 3, row 3? What
+is its output?
+\\[1]  6 11
+ mat_subset <- mat[3, 2:3]
+ 
+ What is the R code is you want to display only the columns 4? What is its output?
+ \\12 13 14
+ 
+ mat_column4 <- mat [,4]
+ 
+\\ Name the rows as isa, dalawa, tatlo and columns as uno, dos, tres, quatro
+for the matrix that was created in b.‘. What is its R code and corresponding output? 
+
+\\[1] "isa"    "dalawa" "tatlo" and [1] "uno"    "dos"    "tres"   "quatro"
+
+rownames(mat) <- c("isa", "dalawa", "tatlo")
+colnames(mat) <- c("uno", "dos", "tres", "quatro")
+
+\\From the original matrix you have created in a, reshape the matrix by assigning a
+new dimension with dim(). New dimensions should have 2 columns and 6 rows. What will
+be the R code and its output?
+\\[1] 2 6
+
+dim(mat) <- c(2,6)
+
+\\Create an array for the above numeric values. Each values will be repeated twice
+What will be the R code if you are to create a three-dimensional array with 4 columns and
+2 rows. What will be its output?
+
