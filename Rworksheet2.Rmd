@@ -1,0 +1,197 @@
+---
+title: "RWorksheet_Almayo#2"
+author: "Josh Christian Almayo"
+date: "2024-10-04"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+operator <- -5:5
+operator
+```
+\\the output shows the sequence from negative 5 to positive 5.
+
+```{r}
+x <- 1:7
+x
+```
+\\ shows sequence from numbers 1 to 7.
+
+```{r}
+ seq(1, 3, by=0.2)
+```
+
+```{r}
+ages <-c (34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
+22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35,
+24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,18)
+
+```
+\\ the 3rd element is 22
+\\ the 2nd and 4th element are 28 and 36
+```{r}
+allbut4and12 <- ages[-c(4, 12)]
+
+allbut4and12
+```
+```{r}
+x <- c("first"=3, "second"=0, "third"=9)
+```
+```{r}
+names(x) <- c("first", "second", "third")
+```
+
+```{r}
+x
+
+(x[c("first", "third")])
+```
+
+```{r}
+x <- -3:2
+
+x[2] <- 0
+```
+
+\\the second element was modified and replaced by zero
+
+```{r}
+month <- c("Jan", "Feb", "March", "Apr", "May", "June")
+ppl <- c(52.50, 57.25, 60.00, 65.00, 74.25, 54.00)
+pq <- c(25, 30, 40, 50, 10, 45)
+
+df <- data.frame(month, ppl, pq)
+  
+df
+```
+```{r}
+avg <- weighted.mean(ppl, pq)
+
+avg
+```
+
+\\the output shows the avg. fuel expenditure of Mr. Cruz from january to june.
+
+```{r}
+data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers),
+          sd(rivers), min(rivers), max(rivers))
+data
+```
+\\the output shows the values of rivers' data sets.
+
+
+8.
+
+a.
+```{r}
+PR <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,18,20,21,22,23,24,25)
+```
+
+
+```{r}
+ Celebrity <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Sprinsteen", "Donal Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K. Rowling", "Brad Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Leno", "Celine Dion", "Kobe Bryant")
+```
+
+
+```{r}
+Pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 60, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+```
+
+PR
+Celebrity
+Pay
+
+
+b.
+
+```{r}
+Change <- which(Celebrity == "J.K. Rowling")
+PR[Change] <- 15
+Pay[Change] <- 90
+```
+
+
+c.
+
+```{r}
+ranks <- read.xlsx("/cloud/project/worksheet2/PowerRanking.xlsx")
+ranks
+```
+
+
+d.
+
+
+Ranks <- ranks[10:20,]
+Ranks
+
+9.
+```{r}
+
+library("openxlsx")
+library("readxl")
+
+Hotelsvienna <- read_xlsx("/cloud/project/worksheet2/Hotels-vienna.xlsx")
+Hotelsvienna
+```
+\\b.
+
+```{r}
+dim(Hotelsvienna)
+```
+\\It has 428 rdimensions and 24 cdimensions.
+
+\\c.
+
+```{r}
+column <- Hotelsvienna[, c("country", "neighbourhood", "price", "stars", "accommodation_type", "rating")]
+```
+
+
+
+\\10
+a.
+```{r}
+vegetables <- list("Potato", "Carrot", "Onion", "Spinach", "Cabbage", "Eggplant", "Tomato", "Lettuce", "Radish", "Garlic")
+vegetables
+```
+
+
+\\10.
+b
+```{r}
+vegetables <- append(vegetables, list("Cucumber", "Squash"))
+vegetables
+```
+
+
+\\10.
+
+\\c. 16 data points
+vegetables <- append(vegetables, list("Cauliflower", "Asparagus", "Green Beans", "Beet Root"))
+vegetables
+length(vegetables)
+
+\\10.
+d.
+
+\\13 vegetables were left
+```{r}
+vegetables <- vegetables[-c(5, 10, 15)]
+vegetables
+
+
+```
+
+
+
+
+
+
