@@ -1,0 +1,121 @@
+---
+title: "RWorksheet_Almayo#4a"
+author: "Josh Christian Almayo"
+date: "2024-10-14"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+1.
+
+\\The table below shows the data about shoe size and height. Create a data frame.
+a. Describe the data
+
+\\the data shoes the different measurement of height, and shoesize of the different genders.
+```{r}
+
+household_data <- data.frame(
+shoesize =  c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0),
+
+
+height =  c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.5, 67.0, 71.0, 71.0, 77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0),
+
+
+
+gender = c("F","F","F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M", "M", "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M")
+)
+
+```
+
+B. 
+Create a subset by males and females with their corresponding shoe size and height.
+What its result? Show the R scripts.
+
+
+```{r}
+males <- subset(household_data, gender == "M" & shoesize&height)
+females <- subset(household_data, gender == "F" & shoesize&height)
+males
+females
+```
+
+
+
+
+
+```{r}
+meanA <- mean(household_data$shoesize)
+meanB <- mean(household_data$height)
+meanA
+meanB
+```
+
+d. is there a relationship between shoe size and height? Why?
+
+\\there is a relationship  between height and shoe size, taller individual tends to have larger shoe size because of body proportion.
+
+
+3. Then check the summary() of the months_vector and factor_months_vector. | Inter-
+pret the results of both vectors. Are they both equally useful in this case?
+
+\\yes, since it shows the summary of levels of the months.
+```{r}
+months <- c("March","April","January","November","January",
+"September","October","September","November","August",
+"January","November","November","February","May","August", "July","December","August","August","September","November","February",
+"April")
+```
+```{r}
+months_vector <- c(months)
+months_vector
+```
+
+```{r}
+factor_months_vector <- factor(months)
+factor_months_vector
+```
+
+
+
+
+```{r}
+summary(months)
+
+```
+4.
+
+```{r}
+direction <- c("East", "West", "North")
+frequency <- c(1,4,3)
+
+direction
+frequency
+
+new_order_data <- factor(direction,levels = c("East","West","North"))
+new_order_data
+```
+5.
+
+a.
+```{r}
+import_march <- read.table("import_march.csv", header = TRUE, sep = "\t")
+import_march
+```
+b.
+```{r}
+str(import_march)
+```
+\\it shows the structure of the imported csv file that has student, strat1,strat2 and strat3.
+
+
+
+
+
+
+
