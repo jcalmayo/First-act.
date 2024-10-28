@@ -1,0 +1,145 @@
+---
+title: "Rworksheet_Almayo#4b"
+output:
+  pdf_document: default
+  html_document: default
+date: "2024-10-28"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+#1
+```{r}
+
+vectorA = c(1,2,3,4,5)
+
+for(i in vectorA){
+  print(vectorA)
+}
+abs(vectorA)
+```
+#2
+```{r}
+vectorB <- c(1,2,3,4,5)
+
+for (x in vectorB){
+  cat(rep("*",x), "\n")
+}
+```
+
+#3
+```{r}
+Fibonacci_sequence <- function(start){
+a <- 0
+b <- 1
+
+repeat {
+  fib <- a+b
+  a <- b
+  b <- fib
+  if (fib >= 500) {
+      break
+    }
+  if (fib >= start) {
+      print(fib)
+    }
+  }
+}
+sequencing <- as.numeric(readline(prompt="Enter a Number:"))
+
+if (!is.na(sequencing)<1) {
+  print("Please enter a higher number")
+} else {
+  cat("Fibonacci sequence starting from", sequencing, "up to 500:\n")
+  Fibonacci_sequence(sequencing)
+}
+```
+#4
+```{r}
+datas <- read.csv("/cloud/project/Worksheet4/Data set.csv")
+```
+#b
+```{r}
+male <- subset(datas, Gender == "M")
+male
+female <- subset(datas, Gender == "F")
+female
+num_male <- nrow(male)
+num_female <- nrow(female)
+cat("Number of observations for Male:", num_male, "\n")
+cat("Number of observations for Female:", num_female, "\n")
+```
+#c
+
+
+```{r}
+
+Plotting <- c(num_male,num_female)
+
+names(Plotting) <- c("Male", "Female")
+
+barplot(Plotting, main = "Male and Female", xlab = "Gender", ylab = "Total_Numbers", col = c("blue", "cyan"),legend.text = TRUE, beside = TRUE)
+```
+
+
+#5
+```{r}
+bills <- c("Food", "Electricity", "Savings", "Miscellaneous")
+Values <- c(60, 10, 5, 25)
+
+Bills <- matrix(Values, nrow = 1, ncol = length(bills), dimnames = list(NULL,bills))
+Bills
+
+Plotters <- pie(Values, labels = c("Food", "Electricity", "Savings", "Miscellaneous"),col = c("lightblue", "lightgreen", "lightcoral", "lightsalmon"), main = "Expenditures" )
+```
+
+#6
+```{r}
+data(iris)
+str(iris)
+mean_values <- colMeans(iris[, 1:4])
+mean_values
+```
+
+#C
+```{r}
+species <- table(iris$Species)
+colors <- c("blue", "brown","maroon")
+Pie <- pie(species, main = "Species Distribution", col = colors ,labels = names(species))
+legend("topright", legend = names(species), fill = colors)
+```
+
+#D
+```{r}
+setosa <- subset(iris, Species == "setosa")
+versicolor <- subset(iris, Species == "versicolor")
+virginica <- subset(iris, Species == "virginica")
+s<-tail(setosa)
+v<- tail(versicolor)
+v2<- tail(virginica)
+s
+v
+v2
+```
+
+
+#E
+
+```{r}
+plot(iris$Sepal.Length, iris$Sepal.Width, main = "Iris Dataset", sub = "Sepal width and length", xlab = "Sepal Length", ylab = "Sepal Width", pch = 19, col = iris$Species)
+legend("topright", legend = levels(iris$Species), pch = 19, col = 1:3)
+```
+
+
+
+
+
+
+
+
+
+
