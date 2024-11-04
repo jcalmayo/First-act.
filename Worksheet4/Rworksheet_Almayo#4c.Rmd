@@ -1,0 +1,156 @@
+---
+title: "Rworksheet-Almayo#4c"
+output:
+  pdf_document: default
+  html_document: default
+date: "2024-11-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+library(dplyr)
+#1.a
+mpg <- read.csv("/cloud/project/Worksheet4/mpg.csv")
+mpg
+
+#b.
+#model,manufacturer and class are categorical 
+
+#c
+#hwy, city, displ
+```
+
+```{r}
+#2.Toyota has the most model data
+#a
+
+library(ggplot2)
+library(dplyr)
+manufacturers_models_count <- mpg %>%
+mutate(manufacturers = as.character(manufacturers)) %>%
+summarize(unique_models = n_distinct(models)) %>%
+  
+print(manufacturers_models_count)
+  
+```
+
+```{r}
+#2 
+#a.
+
+ggplot(mpg, aes(models, manufacturers)) + geom_point()
+
+#t constructs a scatter plot where the x-axis and y-axis represent model and manufacturer dimensions, respectively.
+```
+
+```{r}
+#b. While the plot provides valuable insights, the excessive number of categories on the x-axis compromises its clarity and understandability
+
+```
+
+```{r}
+#3.
+
+library(ggplot2)
+library(dplyr)
+
+top20data <- mpg %>% head(20)
+
+ggplot(top20data, aes(x = model, y = year)) +
+  geom_point() +
+  labs(title = "Top 20 Car Models by Year") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+#4.
+mc <- mpg %>%
+  group_by(model) %>%
+  summarise(car_count = n())
+
+mc
+
+```
+
+```{r}
+#a.
+top_20_models <- mc %>% top_n(20, car_count)
+
+ggplot(top_20_models, aes(x = reorder(model, car_count), y = car_count, fill = model)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Top 20 Car Models by Count (Flipped)",
+       x = "car models",
+       y = "Count") 
+#it shows top20 car models by count
+```
+
+```{r}
+#b.
+
+ggplot(top_20_models, aes(x = reorder(model, car_count), y = car_count, fill = model)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Top 20 Car Models by Count",
+       x = "Car Model",
+       y = "Count") + coord_flip() 
+```
+
+```{r}
+#5
+#a.
+ggplot(mpg, aes(x = cyl, y = displ, color = displ)) +
+  geom_point() +
+  labs(title = "Relationship between No. of Cylinders and Engine Displacement",
+       x = "Number of Cylinders",
+       y = "Engine Displacement (L)") 
+```
+
+```{r}
+#6.
+
+ggplot(mpg, aes(x = displ, y = hwy, color = cyl)) +
+  geom_point() +
+  labs(title = "Relationship between Engine Displacement and Highway MPG",
+       x = "Engine Displacement (L)",
+       y = "Highway MPG")
+```
+
+```{r}
+#7.
+#a.
+library(readxl)
+
+datas <- read_xlsx("/cloud/project/Worksheet4/alexa_file.xlsx")
+number_of_observations <- nrow(datas)
+num_columns <- ncol(datas)
+num_columns
+datas
+number_of_observations
+
+
+
+
+#there are 3150 observations
+#there are 5 columns
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
